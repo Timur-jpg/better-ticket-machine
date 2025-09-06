@@ -18,6 +18,10 @@ public class TicketMachine
     // The total amount of money collected by this machine.
     private int total;
     
+    private int discountedPrice;
+    
+    private boolean useDiscount;
+    
 
     public void affordable(int budget) {
     if (budget >= price) {
@@ -25,20 +29,19 @@ public class TicketMachine
     } else {
         System.out.println("Too expensive");
     }
-}
-public int refundBalance()
-{
-return balance;
-balance = 0;
-}
+    }
+
     /**
      * Create a machine that issues tickets of the given price.
      */
     public TicketMachine(int cost)
     {
-        price = 0;
+        int price = cost;
         balance = 0;
         total = 0;
+        discountedPrice = price / 2;
+        useDiscount = false;
+
     }
 
     /**
@@ -78,20 +81,26 @@ balance = 0;
      */
     public void printTicket()
     {
-        if(balance >= price) {
-            // Simulate the printing of a ticket.
-            System.out.println("##################");
-            System.out.println("# The BlueJ Line");
-            System.out.println("# Ticket");
-            System.out.println("# " + price + " cents.");
-            System.out.println("##################");
-            System.out.println();
+    {
+    int amountLeftToPay = price - balance;  // calculate how much more needs to be paid
+    
+    if (amountLeftToPay <= 0) {
+        // Enough money has been paid, print the ticket
+        System.out.println("##################");
+        System.out.println("# The BlueJ Line");
+        System.out.println("# Ticket");
+        System.out.println("# " + price + " cents.");
+        System.out.println("##################");
+        System.out.println();
 
-            // Update the total collected with the price.
-            total = total + price;
-            // Reduce the balance by the price.
-            balance = balance - price;
-        }
+        total = total + price;
+        balance = balance - price;
+    } else {
+        // Not enough money paid yet, show how much is left
+        System.out.println("You must insert at least: " + amountLeftToPay + " more cents.");
+    }
+}
+ 
         
     }
 
@@ -106,6 +115,14 @@ balance = 0;
         balance = 0;
         return amountToRefund;
     }
+    
+    public int emptyMachine() {
+    int money = total;  // save the current total
+    total = 0;          // reset total to zero
+    return money;       // return the amount that was in total
+    }
+
+    
     
     
 }

@@ -39,7 +39,13 @@ Question 58: String concatenation is easier
 Question 59: Because this version resets balance before returning, so it always returns 0 instead of the original balance amount.
 
 Question 60: The code does not compile
-
-                                                                                                          
+             A return statement stops the method, so code after it won't run and causes an error.
+             
+Question 61: The difference between the version are that the type in is added infront of the price and the value changed from 0 to cost.
+             Yes, this version does compile.
+             Yes, the price field remains 0
+             I think it’s because the constructor makes a new price variable just inside itself, so maybe it doesn’t actually change the main price that the rest of the class uses. So the original price stays at 0.
+ 
+Question 62:              
              
 
