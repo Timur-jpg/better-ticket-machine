@@ -26,7 +26,11 @@ public class TicketMachine
         System.out.println("Too expensive");
     }
 }
-
+public int refundBalance()
+{
+return balance;
+balance = 0;
+}
     /**
      * Create a machine that issues tickets of the given price.
      */

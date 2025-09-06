@@ -38,7 +38,7 @@ Question 58: String concatenation is easier
 
 Question 59: Because this version resets balance before returning, so it always returns 0 instead of the original balance amount.
 
-Question 
+Question 60: The code does not compile
 
                                                                                                           
              
