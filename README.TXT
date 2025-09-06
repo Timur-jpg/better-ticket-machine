@@ -46,6 +46,6 @@ Question 61: The difference between the version are that the type in is added in
              Yes, the price field remains 0
              I think it’s because the constructor makes a new price variable just inside itself, so maybe it doesn’t actually change the main price that the rest of the class uses. So the original price stays at 0.
  
-Question 62:              
+Question 64: Add fields to hold discount info and a method to activate it to allow this kind of functionality.             
              
 
